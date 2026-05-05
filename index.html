@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masjid Baiturrahman - Website Resmi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'islamic-gold': '#C5A059',
+                        'islamic-gold-light': '#D4B87A',
+                        'islamic-gold-dark': '#A08240',
+                        'cream': '#F5F0E6',
+                        'cream-dark': '#E8E0D0',
+                        'emerald': '#046A38',
+                        'emerald-light': '#0A8F4E',
+                        'emerald-dark': '#034A28',
+                        'chocolate': '#5D4037',
+                        'chocolate-light': '#8D6E63',
+                        'chocolate-dark': '#3E2723',
+                    },
+                    fontFamily: {
+                        'amiri': ['Amiri', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'scheherazade': ['Scheherazade New', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A059' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #D4B87A 50%, #A08240 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F5F0E6; }
+        ::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #C5A059, #046A38);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .prayer-card {
+            background: linear-gradient(135deg, rgba(4, 106, 56, 0.95), rgba(3, 74, 40, 0.95));
+            position: relative;
+            overflow: hidden;
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #E8E0D0 25%, #F5F0E6 50%, #E8E0D0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        .input-focus:focus {
+            border-color: #C5A059;
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+        }
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn-shine:hover::before {
+            left: 100%;
+        }
+        .section-divider {
+            height: 60px;
+            background: linear-gradient(135deg, #F5F0E6 25%, transparent 25%) -30px 0,
+                        linear-gradient(225deg, #F5F0E6 25%, transparent 25%) -30px 0,
+                        linear-gradient(315deg, #F5F0E6 25%, transparent 25%),
+                        linear-gradient(45deg, #F5F0E6 25%, transparent 25%);
+            background-size: 60px 60px;
+            background-color: white;
+        }
+        .modal-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .toast {
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+        }
+        .toast.show {
+            transform: translateX(0);
+        }
+        .admin-tab.active {
+            background: linear-gradient(135deg, #046A38, #0A8F4E);
+            color: white;
+        }
+        .admin-tab:not(.active) {
+            background: #F5F0E6;
+            color: #5D4037;
+        }
+        .admin-tab:not(.active):hover {
+            background: #E8E0D0;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-cream text-chocolate-dark">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-cream flex flex-col items-center justify-center">
+        <div class="relative w-24 h-24 mb-6">
+            <div class="absolute inset-0 border-4 border-cream-dark rounded-full"></div>
+            <div class="absolute inset-0 border-4 border-islamic-gold border-t-transparent rounded-full animate-spin"></div>
+            <div class="absolute inset-4 flex items-center justify-center">
+                <i class="fas fa-mosque text-3xl text-emerald"></i>
+            </div>
+        </div>
+        <h2 class="font-amiri text-2xl text-emerald-dark font-bold">Masjid Baiturrahman</h2>
+        <p class="text-chocolate-light mt-2 text-sm">Memuat konten...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <div class="glass-effect border-b border-islamic-gold/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald to-emerald-dark rounded-full flex items-center justify-center shadow-lg">
+                            <i class="fas fa-mosque text-islamic-gold text-xl"></i>
+                        </div>
+                        <div class="hidden sm:block">
+                            <h1 class="font-scheherazade text-2xl font-bold text-emerald-dark leading-tight">Masjid Baiturrahman</h1>
+                            <p class="text-xs text-chocolate-light tracking-wider">Rumah Allah SWT</p>
+                        </div>
+                    </div>
+
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="#beranda" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Beranda</a>
+                        <a href="#jadwal" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Jadwal Sholat</a>
+                        <a href="#kegiatan" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Kegiatan</a>
+                        <a href="#pengumuman" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Pengumuman</a>
+                        <a href="#infaq" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Infaq</a>
+                        <a href="#kontak" class="nav-link text-chocolate-dark hover:text-emerald font-medium transition-colors">Kontak</a>
+                        <button onclick="openAdminModal()" class="bg-gradient-to-r from-emerald to-emerald-light text-white px-5 py-2 rounded-full font-medium hover:shadow-lg transition-all btn-shine">
+                            <i class="fas fa-lock mr-2"></i>Admin
+                        </button>
+                    </div>
+
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-cream-dark transition-colors">
+                        <i class="fas fa-bars text-2xl text-emerald-dark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 bg-white z-[60] shadow-2xl overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-mosque text-emerald text-2xl"></i>
+                    <span class="font-scheherazade text-xl font-bold text-emerald-dark">Menu</span>
+                </div>
+                <button id="close-mobile-menu" class="p-2 hover:bg-cream rounded-lg transition-colors">
+                    <i class="fas fa-times text-2xl text-chocolate"></i>
+                </button>
+            </div>
+            <div class="space-y-2">
+                <a href="#beranda" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-home w-8 text-islamic-gold"></i>Beranda
+                </a>
+                <a href="#jadwal" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-clock w-8 text-islamic-gold"></i>Jadwal Sholat
+                </a>
+                <a href="#kegiatan" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-calendar-alt w-8 text-islamic-gold"></i>Kegiatan
+                </a>
+                <a href="#pengumuman" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-bullhorn w-8 text-islamic-gold"></i>Pengumuman
+                </a>
+                <a href="#infaq" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-hand-holding-heart w-8 text-islamic-gold"></i>Infaq
+                </a>
+                <a href="#kontak" class="mobile-link block px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-envelope w-8 text-islamic-gold"></i>Kontak
+                </a>
+                <hr class="border-cream-dark my-4">
+                <button onclick="openAdminModal()" class="w-full text-left px-4 py-3 rounded-xl hover:bg-cream text-chocolate-dark hover:text-emerald font-medium transition-all">
+                    <i class="fas fa-lock w-8 text-islamic-gold"></i>Area Admin
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920&q=80" 
+                 alt="Masjid Background" 
+                 class="w-full h-full object-cover"
+                 id="hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-b from-emerald-dark/80 via-emerald-dark/60 to-cream"></div>
+            <div class="absolute inset-0 islamic-pattern opacity-30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in-up">
+                <div class="flex justify-center mb-6">
+                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-islamic-gold to-transparent"></div>
+                </div>
+
+                <p class="font-amiri text-islamic-gold text-lg sm:text-xl mb-4 tracking-widest">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+
+                <h1 class="font-scheherazade text-5xl sm:text-7xl lg:text-8xl font-bold text-white mb-4 leading-tight">
+                    Masjid <span class="text-gold-gradient">Baiturrahman</span>
+                </h1>
+
+                <p class="font-poppins text-cream/90 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Rumah ibadah yang menyambut dengan hangat, membangun ukhuwah islamiyah, 
+                    dan menggapai ridha Allah SWT
+                </p>
+
+                <div class="inline-flex items-center bg-white/10 backdrop-blur-md rounded-2xl px-6 py-4 mb-8 border border-white/20">
+                    <i class="fas fa-clock text-islamic-gold text-2xl mr-4"></i>
+                    <div class="text-left">
+                        <p class="text-cream/70 text-sm">Waktu Sekarang</p>
+                        <p id="current-time" class="text-white text-2xl font-bold font-amiri">--:--</p>
+                    </div>
+                    <div class="w-px h-12 bg-white/20 mx-6"></div>
+                    <div class="text-left">
+                        <p class="text-cream/70 text-sm">Sholat Berikutnya</p>
+                        <p id="next-prayer" class="text-islamic-gold text-xl font-bold">Memuat...</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#jadwal" class="bg-gradient-to-r from-islamic-gold to-islamic-gold-dark text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all btn-shine inline-flex items-center justify-center">
+                        <i class="fas fa-calendar-check mr-2"></i>
+                        Lihat Jadwal Sholat
+                    </a>
+                    <a href="#kegiatan" class="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center">
+                        <i class="fas fa-book-open mr-2"></i>
+                        Jadwal Kegiatan
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#jadwal" class="text-white/60 hover:text-white transition-colors">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Times Section -->
+    <section id="jadwal" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald to-emerald-light rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-pray text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-emerald-dark mb-4">Jadwal Sholat</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-emerald mx-auto rounded-full mb-4"></div>
+                <p class="text-chocolate-light max-w-xl mx-auto">Jadwal sholat lima waktu untuk wilayah ini. Semoga Allah menerima ibadah kita.</p>
+                <p id="prayer-date" class="font-amiri text-emerald mt-2 text-lg">--</p>
+            </div>
+
+            <div id="prayer-times-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="skeleton rounded-2xl h-40"></div>
+                <div class="skeleton rounded-2xl h-40"></div>
+                <div class="skeleton rounded-2xl h-40"></div>
+                <div class="skeleton rounded-2xl h-40"></div>
+                <div class="skeleton rounded-2xl h-40"></div>
+                <div class="skeleton rounded-2xl h-40"></div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                <div class="bg-gradient-to-r from-chocolate to-chocolate-light rounded-2xl p-6 text-white flex items-center">
+                    <i class="fas fa-moon text-islamic-gold text-3xl mr-4"></i>
+                    <div>
+                        <p class="text-cream/70 text-sm">Imsak</p>
+                        <p id="imsak-time" class="text-2xl font-bold">--:--</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-islamic-gold-dark to-islamic-gold rounded-2xl p-6 text-white flex items-center">
+                    <i class="fas fa-sun text-white text-3xl mr-4"></i>
+                    <div>
+                        <p class="text-white/70 text-sm">Terbit / Syuruq</p>
+                        <p id="sunrise-time" class="text-2xl font-bold">--:--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Activities Section -->
+    <section id="kegiatan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-users text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-emerald-dark mb-4">Kegiatan Masjid</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-emerald mx-auto rounded-full mb-4"></div>
+                <p class="text-chocolate-light max-w-xl mx-auto">Berbagai kegiatan islamiyah untuk memperkuat silaturahmi dan ilmu agama</p>
+            </div>
+
+            <div id="activities-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skeleton rounded-2xl h-80"></div>
+                <div class="skeleton rounded-2xl h-80"></div>
+                <div class="skeleton rounded-2xl h-80"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider" style="transform: rotate(180deg);"></div>
+
+    <!-- Announcements Section -->
+    <section id="pengumuman" class="py-20 relative">
+        <div class="absolute inset-0 islamic-pattern opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald to-emerald-light rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-bullhorn text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-emerald-dark mb-4">Pengumuman</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-emerald mx-auto rounded-full mb-4"></div>
+                <p class="text-chocolate-light max-w-xl mx-auto">Informasi terkini seputar kegiatan dan perkembangan masjid</p>
+            </div>
+
+            <div id="announcements-container" class="space-y-6 max-w-4xl mx-auto">
+                <div class="skeleton rounded-2xl h-32"></div>
+                <div class="skeleton rounded-2xl h-32"></div>
+                <div class="skeleton rounded-2xl h-32"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infaq Section -->
+    <section id="infaq" class="py-20 bg-gradient-to-b from-emerald-dark to-emerald relative overflow-hidden">
+        <div class="absolute inset-0 islamic-pattern opacity-20"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-islamic-gold/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-donate text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-white mb-4">Infaq & Shodaqoh</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-white mx-auto rounded-full mb-4"></div>
+                <p class="text-cream/80 max-w-xl mx-auto">"Sesungguhnya orang-orang yang bersedekah baik laki-laki maupun perempuan dan meminjamkan pinjaman yang baik kepada Allah, niscaya akan dilipatgandakan baginya dan baginya pahala yang banyak." (QS. Al-Hadid: 18)</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                        <h3 class="font-scheherazade text-3xl text-islamic-gold mb-6">Rekening Infaq</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center bg-white/5 rounded-xl p-4">
+                                <div class="w-12 h-12 bg-islamic-gold/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-university text-islamic-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cream/70 text-sm">Bank Syariah Indonesia</p>
+                                    <p class="text-white text-lg font-bold font-mono">1234 5678 9012 3456</p>
+                                    <p class="text-islamic-gold text-sm">a.n. Masjid Baiturrahman</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-white/5 rounded-xl p-4">
+                                <div class="w-12 h-12 bg-islamic-gold/20 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-mobile-alt text-islamic-gold"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cream/70 text-sm">QRIS / E-Wallet</p>
+                                    <p class="text-white text-lg font-bold">Scan QR Code</p>
+                                    <p class="text-islamic-gold text-sm">Semua e-wallet diterima</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                        <div class="flex justify-between items-end mb-4">
+                            <div>
+                                <p class="text-cream/70 text-sm">Target Pengumpulan</p>
+                                <p class="text-white text-2xl font-bold">Renovasi Musholla</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-islamic-gold text-3xl font-bold">75%</p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-white/20 rounded-full h-4 mb-4">
+                            <div class="bg-gradient-to-r from-islamic-gold to-islamic-gold-light h-4 rounded-full" style="width: 75%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-cream/70">Terkumpul: <span class="text-white font-semibold">Rp 150.000.000</span></span>
+                            <span class="text-cream/70">Target: <span class="text-white font-semibold">Rp 200.000.000</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                    <h3 class="font-scheherazade text-3xl text-emerald-dark mb-2">Formulir Infaq</h3>
+                    <p class="text-chocolate-light mb-6">Isi formulir di bawah untuk mencatat infaq Anda</p>
+
+                    <form id="infaq-form" class="space-y-5">
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Nama Lengkap</label>
+                            <input type="text" id="infaq-nama" required 
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                   placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Nomor Telepon</label>
+                            <input type="tel" id="infaq-telepon" required 
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                   placeholder="08xxxxxxxxxx">
+                        </div>
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Jumlah Infaq (Rp)</label>
+                            <input type="number" id="infaq-jumlah" required min="1000"
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                   placeholder="100000">
+                        </div>
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Keterangan (Opsional)</label>
+                            <textarea id="infaq-keterangan" rows="3"
+                                      class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all resize-none"
+                                      placeholder="Tulis keterangan jika perlu..."></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-emerald to-emerald-light text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all btn-shine flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Infaq
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-chocolate to-chocolate-light rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-images text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-emerald-dark mb-4">Galeri Masjid</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-emerald mx-auto rounded-full mb-4"></div>
+                <p class="text-chocolate-light max-w-xl mx-auto">Momen-momen berharga dalam kegiatan masjid</p>
+            </div>
+
+            <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="skeleton rounded-2xl aspect-square"></div>
+                <div class="skeleton rounded-2xl aspect-square"></div>
+                <div class="skeleton rounded-2xl aspect-square"></div>
+                <div class="skeleton rounded-2xl aspect-square"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-cream relative">
+        <div class="absolute inset-0 islamic-pattern opacity-30"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald to-emerald-light rounded-2xl mb-6 shadow-lg">
+                    <i class="fas fa-envelope text-white text-2xl"></i>
+                </div>
+                <h2 class="font-scheherazade text-4xl sm:text-5xl font-bold text-emerald-dark mb-4">Hubungi Kami</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-islamic-gold to-emerald mx-auto rounded-full mb-4"></div>
+                <p class="text-chocolate-light max-w-xl mx-auto">Silakan hubungi kami untuk informasi lebih lanjut</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-br from-emerald to-emerald-light rounded-xl flex items-center justify-center mr-5 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-scheherazade text-2xl text-emerald-dark mb-2">Alamat</h3>
+                                <p class="text-chocolate-light leading-relaxed">
+                                    Jl. Masjid Baiturrahman No. 1<br>
+                                    Kelurahan Mekar Jaya, Kecamatan Sukamaju<br>
+                                    Kota Bandung, Jawa Barat 40123
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-xl flex items-center justify-center mr-5 flex-shrink-0">
+                                <i class="fas fa-phone text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-scheherazade text-2xl text-emerald-dark mb-2">Telepon</h3>
+                                <p class="text-chocolate-light">
+                                    <a href="tel:+6281234567890" class="hover:text-emerald transition-colors">+62 812-3456-7890</a><br>
+                                    <a href="tel:+6289876543210" class="hover:text-emerald transition-colors">+62 898-7654-3210</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-14 h-14 bg-gradient-to-br from-chocolate to-chocolate-light rounded-xl flex items-center justify-center mr-5 flex-shrink-0">
+                                <i class="fas fa-envelope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-scheherazade text-2xl text-emerald-dark mb-2">Email</h3>
+                                <p class="text-chocolate-light">
+                                    <a href="mailto:info@baiturrahman.id" class="hover:text-emerald transition-colors">info@baiturrahman.id</a><br>
+                                    <a href="mailto:admin@baiturrahman.id" class="hover:text-emerald transition-colors">admin@baiturrahman.id</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="font-scheherazade text-2xl text-emerald-dark mb-4">Media Sosial</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-emerald to-emerald-light rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all hover:scale-110">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all hover:scale-110">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-chocolate to-chocolate-light rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all hover:scale-110">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-gradient-to-br from-emerald-light to-emerald rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all hover:scale-110">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                    <h3 class="font-scheherazade text-3xl text-emerald-dark mb-2">Kirim Pesan</h3>
+                    <p class="text-chocolate-light mb-6">Ada pertanyaan atau saran? Silakan kirim pesan kepada kami</p>
+
+                    <form id="contact-form" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-chocolate font-medium mb-2">Nama Lengkap *</label>
+                                <input type="text" id="contact-nama" required 
+                                       class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                       placeholder="Nama Anda">
+                            </div>
+                            <div>
+                                <label class="block text-chocolate font-medium mb-2">Email *</label>
+                                <input type="email" id="contact-email" required 
+                                       class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                       placeholder="email@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Subjek</label>
+                            <input type="text" id="contact-subjek" 
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all"
+                                   placeholder="Subjek pesan">
+                        </div>
+                        <div>
+                            <label class="block text-chocolate font-medium mb-2">Pesan *</label>
+                            <textarea id="contact-pesan" rows="5" required
+                                      class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark placeholder-chocolate-light/50 input-focus outline-none transition-all resize-none"
+                                      placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-emerald to-emerald-light text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all btn-shine flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-chocolate-dark to-chocolate text-white relative overflow-hidden">
+        <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="lg:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-full flex items-center justify-center">
+                            <i class="fas fa-mosque text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-scheherazade text-2xl font-bold">Masjid Baiturrahman</h3>
+                        </div>
+                    </div>
+                    <p class="text-cream/70 leading-relaxed mb-6">
+                        Rumah ibadah yang menyambut dengan hangat, membangun ukhuwah islamiyah, dan menggapai ridha Allah SWT.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-islamic-gold transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-islamic-gold transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-islamic-gold transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-islamic-gold transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-scheherazade text-xl font-bold text-islamic-gold mb-6">Tautan Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#beranda" class="text-cream/70 hover:text-islamic-gold transition-colors">Beranda</a></li>
+                        <li><a href="#jadwal" class="text-cream/70 hover:text-islamic-gold transition-colors">Jadwal Sholat</a></li>
+                        <li><a href="#kegiatan" class="text-cream/70 hover:text-islamic-gold transition-colors">Kegiatan</a></li>
+                        <li><a href="#pengumuman" class="text-cream/70 hover:text-islamic-gold transition-colors">Pengumuman</a></li>
+                        <li><a href="#infaq" class="text-cream/70 hover:text-islamic-gold transition-colors">Infaq</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-scheherazade text-xl font-bold text-islamic-gold mb-6">Kontak</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-islamic-gold mt-1 mr-3"></i>
+                            <span class="text-cream/70">Jl. Masjid Baiturrahman No. 1, Bandung</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-islamic-gold mr-3"></i>
+                            <span class="text-cream/70">+62 812-3456-7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-islamic-gold mr-3"></i>
+                            <span class="text-cream/70">info@baiturrahman.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-scheherazade text-xl font-bold text-islamic-gold mb-6">Jadwal Sholat Hari Ini</h4>
+                    <div class="space-y-2" id="footer-prayer-times">
+                        <div class="flex justify-between text-cream/70">
+                            <span>Subuh</span>
+                            <span class="text-islamic-gold font-semibold">--:--</span>
+                        </div>
+                        <div class="flex justify-between text-cream/70">
+                            <span>Dzuhur</span>
+                            <span class="text-islamic-gold font-semibold">--:--</span>
+                        </div>
+                        <div class="flex justify-between text-cream/70">
+                            <span>Ashar</span>
+                            <span class="text-islamic-gold font-semibold">--:--</span>
+                        </div>
+                        <div class="flex justify-between text-cream/70">
+                            <span>Maghrib</span>
+                            <span class="text-islamic-gold font-semibold">--:--</span>
+                        </div>
+                        <div class="flex justify-between text-cream/70">
+                            <span>Isya</span>
+                            <span class="text-islamic-gold font-semibold">--:--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="font-amiri text-islamic-gold text-lg mb-2">"Dan dirikanlah sholat, tunaikanlah zakat, dan rukuklah beserta orang-orang yang rukuk"</p>
+                <p class="text-cream/50 text-sm mb-4">QS. Al-Baqarah: 43</p>
+                <p class="text-cream/50 text-sm">
+                    &copy; 2024 Masjid Baiturrahman. Dibuat dengan <i class="fas fa-heart text-red-400"></i> untuk umat.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Login Modal -->
+    <div id="admin-modal" class="fixed inset-0 z-[70] hidden">
+        <div class="modal-overlay absolute inset-0" onclick="closeAdminModal()"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md p-8 relative animate-fade-in-up">
+                <button onclick="closeAdminModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-cream hover:bg-cream-dark flex items-center justify-center transition-colors">
+                    <i class="fas fa-times text-chocolate"></i>
+                </button>
+
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald to-emerald-light rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-scheherazade text-3xl text-emerald-dark">Area Admin</h3>
+                    <p class="text-chocolate-light">Masukkan kode akses untuk mengelola konten</p>
+                </div>
+
+                <form id="admin-login-form" class="space-y-5">
+                    <div>
+                        <label class="block text-chocolate font-medium mb-2">Kode Akses</label>
+                        <input type="password" id="admin-code" required 
+                               class="w-full px-4 py-3 rounded-xl border-2 border-cream-dark bg-cream/50 text-chocolate-dark text-center text-2xl tracking-widest input-focus outline-none transition-all"
+                               placeholder="••••••">
+                    </div>
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-emerald to-emerald-light text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all btn-shine">
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        Masuk
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="admin-dashboard" class="fixed inset-0 z-[70] hidden overflow-y-auto">
+        <div class="modal-overlay absolute inset-0 min-h-full" onclick="closeAdminDashboard()"></div>
+        <div class="relative min-h-full flex items-start justify-center p-4 pt-20">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl p-8 relative animate-fade-in-up mb-8">
+                <button onclick="closeAdminDashboard()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-cream hover:bg-cream-dark flex items-center justify-center transition-colors z-10">
+                    <i class="fas fa-times text-chocolate"></i>
+                </button>
+
+                <div class="mb-8">
+                    <h3 class="font-scheherazade text-3xl text-emerald-dark mb-2">Dashboard Admin</h3>
+                    <p class="text-chocolate-light">Kelola konten website masjid</p>
+                </div>
+
+                <div class="flex space-x-2 mb-6 overflow-x-auto pb-2">
+                    <button onclick="switchAdminTab('kegiatan')" class="admin-tab active px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="kegiatan">
+                        <i class="fas fa-calendar-alt mr-2"></i>Kegiatan
+                    </button>
+                    <button onclick="switchAdminTab('pengumuman')" class="admin-tab px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="pengumuman">
+                        <i class="fas fa-bullhorn mr-2"></i>Pengumuman
+                    </button>
+                    <button onclick="switchAdminTab('galeri')" class="admin-tab px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="galeri">
+                        <i class="fas fa-images mr-2"></i>Galeri
+                    </button>
+                    <button onclick="switchAdminTab('infaq')" class="admin-tab px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="infaq">
+                        <i class="fas fa-donate mr-2"></i>Data Infaq
+                    </button>
+                    <button onclick="switchAdminTab('pesan')" class="admin-tab px-6 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="pesan">
+                        <i class="fas fa-envelope mr-2"></i>Pesan
+                    </button>
+                </div>
+
+                <div id="admin-content">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed top-24 right-4 z-[80] bg-white rounded-xl shadow-2xl p-4 flex items-center max-w-sm border-l-4 border-emerald">
+        <div id="toast-icon" class="w-10 h-10 bg-emerald/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+            <i class="fas fa-check text-emerald"></i>
+        </div>
+        <div>
+            <p id="toast-title" class="font-semibold text-chocolate-dark">Berhasil!</p>
+            <p id="toast-message" class="text-chocolate-light text-sm">Operasi berhasil dilakukan.</p>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[90] hidden bg-black/95 flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white/70 hover:text-white text-3xl transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURATION
+        // ============================================
+        const CONFIG = {
+            API_URL: 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec',
+            ADMIN_CODE: 'baiturrahman2024',
+            LATITUDE: -6.9147,
+            LONGITUDE: 107.6098,
+            TIMEZONE: 7
+        };
+
+        // ============================================
+        // UTILITY FUNCTIONS
+        // ============================================
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toast-icon');
+            const toastTitle = document.getElementById('toast-title');
+            const toastMessage = document.getElementById('toast-message');
+
+            const colors = {
+                success: 'border-emerald',
+                error: 'border-red-500',
+                warning: 'border-islamic-gold',
+                info: 'border-blue-500'
+            };
+
+            const icons = {
+                success: '<i class="fas fa-check text-emerald"></i>',
+                error: '<i class="fas fa-times text-red-500"></i>',
+                warning: '<i class="fas fa-exclamation text-islamic-gold"></i>',
+                info: '<i class="fas fa-info text-blue-500"></i>'
+            };
+
+            toast.className = `toast fixed top-24 right-4 z-[80] bg-white rounded-xl shadow-2xl p-4 flex items-center max-w-sm border-l-4 ${colors[type]}`;
+            toastIcon.innerHTML = icons[type];
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        function formatDate(date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('id-ID', options);
+        }
+
+        function formatTime(date) {
+            return date.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // ============================================
+        // NAVBAR SCROLL EFFECT
+        // ============================================
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ============================================
+        // ACTIVE NAVIGATION LINK
+        // ============================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ============================================
+        // PRAYER TIMES CALCULATION
+        // ============================================
+        function calculatePrayerTimes(latitude, longitude, timezone) {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            const times = {
+                imsak: '04:30',
+                fajr: '04:45',
+                sunrise: '06:00',
+                dhuhr: '12:00',
+                asr: '15:15',
+                maghrib: '18:00',
+                isha: '19:15'
+            };
+
+            const dayOfYear = Math.floor((date - new Date(year, 0, 0)) / 1000 / 60 / 60 / 24);
+            const adjustment = Math.sin((dayOfYear - 80) * 2 * Math.PI / 365) * 30;
+
+            function adjustTime(timeStr, minutes) {
+                const [h, m] = timeStr.split(':').map(Number);
+                const totalMinutes = h * 60 + m + minutes;
+                const newH = Math.floor(totalMinutes / 60);
+                const newM = totalMinutes % 60;
+                return `${String(newH).padStart(2, '0')}:${String(newM).padStart(2, '0')}`;
+            }
+
+            return {
+                imsak: adjustTime(times.imsak, adjustment * 0.5),
+                fajr: adjustTime(times.fajr, adjustment * 0.5),
+                sunrise: adjustTime(times.sunrise, adjustment * 0.3),
+                dhuhr: adjustTime(times.dhuhr, -adjustment * 0.2),
+                asr: adjustTime(times.asr, -adjustment * 0.3),
+                maghrib: adjustTime(times.maghrib, adjustment * 0.4),
+                isha: adjustTime(times.isha, adjustment * 0.5)
+            };
+        }
+
+        function updatePrayerTimes() {
+            const times = calculatePrayerTimes(CONFIG.LATITUDE, CONFIG.LONGITUDE, CONFIG.TIMEZONE);
+            const now = new Date();
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+
+            const prayers = [
+                { name: 'Subuh', time: times.fajr, icon: 'fa-cloud-sun' },
+                { name: 'Dzuhur', time: times.dhuhr, icon: 'fa-sun' },
+                { name: 'Ashar', time: times.asr, icon: 'fa-cloud' },
+                { name: 'Maghrib', time: times.maghrib, icon: 'fa-moon' },
+                { name: 'Isya', time: times.isha, icon: 'fa-star' }
+            ];
+
+            let nextPrayer = prayers[0];
+            let minDiff = Infinity;
+
+            prayers.forEach(prayer => {
+                const [h, m] = prayer.time.split(':').map(Number);
+                const prayerMinutes = h * 60 + m;
+                let diff = prayerMinutes - currentTime;
+                if (diff < 0) diff += 24 * 60;
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    nextPrayer = prayer;
+                }
+            });
+
+            document.getElementById('current-time').textContent = formatTime(now);
+            document.getElementById('next-prayer').textContent = `${nextPrayer.name} (${nextPrayer.time})`;
+            document.getElementById('prayer-date').textContent = formatDate(now);
+            document.getElementById('imsak-time').textContent = times.imsak;
+            document.getElementById('sunrise-time').textContent = times.sunrise;
+
+            const container = document.getElementById('prayer-times-container');
+            container.innerHTML = prayers.map((prayer, index) => {
+                const [h, m] = prayer.time.split(':').map(Number);
+                const prayerMinutes = h * 60 + m;
+                const isActive = currentTime >= prayerMinutes && currentTime < prayerMinutes + 30;
+                const isNext = prayer.name === nextPrayer.name;
+
+                return `
+                    <div class="prayer-card rounded-2xl p-6 text-white relative ${isActive ? 'ring-4 ring-islamic-gold' : ''} ${isNext ? 'animate-pulse' : ''} card-hover">
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-4">
+                                <i class="fas ${prayer.icon} text-3xl ${isActive || isNext ? 'text-islamic-gold' : 'text-white/60'}"></i>
+                                ${isActive ? '<span class="bg-islamic-gold text-xs px-2 py-1 rounded-full">Sekarang</span>' : ''}
+                                ${isNext && !isActive ? '<span class="bg-white/20 text-xs px-2 py-1 rounded-full">Berikutnya</span>' : ''}
+                            </div>
+                            <h3 class="font-scheherazade text-2xl font-bold mb-1">${prayer.name}</h3>
+                            <p class="text-3xl font-bold font-amiri ${isActive || isNext ? 'text-islamic-gold' : ''}">${prayer.time}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const footerContainer = document.getElementById('footer-prayer-times');
+            footerContainer.innerHTML = prayers.map(prayer => `
+                <div class="flex justify-between text-cream/70">
+                    <span>${prayer.name}</span>
+                    <span class="text-islamic-gold font-semibold">${prayer.time}</span>
+                </div>
+            `).join('');
+        }
+
+        setInterval(updatePrayerTimes, 60000);
+        updatePrayerTimes();
+
+        // ============================================
+        // API FUNCTIONS
+        // ============================================
+        async function apiRequest(action, data = {}) {
+            try {
+                const url = new URL(CONFIG.API_URL);
+                url.searchParams.append('action', action);
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            } catch (error) {
+                console.error('API Error:', error);
+                showToast('Error', 'Gagal terhubung ke server. Menggunakan data lokal.', 'error');
+                return null;
+            }
+        }
+
+        // ============================================
+        // DATA MANAGEMENT
+        // ============================================
+        function getLocalData(key) {
+            const data = localStorage.getItem(`masjid_${key}`);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function setLocalData(key, data) {
+            localStorage.setItem(`masjid_${key}`, JSON.stringify(data));
+        }
+
+        // ============================================
+        // ACTIVITIES
+        // ============================================
+        async function loadActivities() {
+            const container = document.getElementById('activities-container');
+            let activities = getLocalData('activities');
+
+            if (activities.length === 0) {
+                activities = [
+                    {
+                        id: 1,
+                        title: 'Pengajian Subuh',
+                        description: 'Pengajian rutin setiap hari Minggu pagi setelah sholat Subuh bersama Ustadz Ahmad.',
+                        date: 'Setiap Minggu',
+                        time: '05:30 - 07:00',
+                        icon: 'fa-book-open',
+                        color: 'from-emerald to-emerald-light'
+                    },
+                    {
+                        id: 2,
+                        title: 'Tahfidz Quran',
+                        description: 'Program menghafal Al-Quran untuk anak-anak dan remaja dengan metode yang menyenangkan.',
+                        date: 'Senin - Jumat',
+                        time: '16:00 - 18:00',
+                        icon: 'fa-quran',
+                        color: 'from-islamic-gold to-islamic-gold-dark'
+                    },
+                    {
+                        id: 3,
+                        title: 'Kajian Akhwat',
+                        description: 'Kajian khusus untuk muslimah tentang kehidupan sehari-hari berdasarkan Al-Quran dan Sunnah.',
+                        date: 'Setiap Rabu',
+                        time: '09:00 - 11:00',
+                        icon: 'fa-female',
+                        color: 'from-chocolate to-chocolate-light'
+                    }
+                ];
+                setLocalData('activities', activities);
+            }
+
+            container.innerHTML = activities.map(activity => `
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br ${activity.color} flex items-center justify-center">
+                        <i class="fas ${activity.icon} text-6xl text-white/80"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-chocolate-light mb-2">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span>${activity.date}</span>
+                        </div>
+                        <h3 class="font-scheherazade text-2xl font-bold text-emerald-dark mb-2">${activity.title}</h3>
+                        <p class="text-chocolate-light text-sm mb-4">${activity.description}</p>
+                        <div class="flex items-center text-sm text-islamic-gold font-medium">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>${activity.time}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ============================================
+        // ANNOUNCEMENTS
+        // ============================================
+        async function loadAnnouncements() {
+            const container = document.getElementById('announcements-container');
+            let announcements = getLocalData('announcements');
+
+            if (announcements.length === 0) {
+                announcements = [
+                    {
+                        id: 1,
+                        title: 'Jadwal Pengajian Bulan Ramadhan',
+                        content: 'Pengajian Ramadhan akan diadakan setiap malam setelah sholat Tarawih. Ustadz akan membahas tema "Menyambut Lailatul Qadar".',
+                        date: '2024-03-10',
+                        priority: 'high'
+                    },
+                    {
+                        id: 2,
+                        title: 'Renovasi Musholla',
+                        content: 'Renovasi musholla akan dimulai pada tanggal 15 Maret 2024. Mohon doa dan partisipasinya dalam program infaq renovasi.',
+                        date: '2024-03-05',
+                        priority: 'normal'
+                    },
+                    {
+                        id: 3,
+                        title: 'Pendaftaran Tahfidz Quran',
+                        content: 'Pendaftaran program Tahfidz Quran periode baru telah dibuka. Silakan mendaftar di sekretariat masjid.',
+                        date: '2024-03-01',
+                        priority: 'normal'
+                    }
+                ];
+                setLocalData('announcements', announcements);
+            }
+
+            container.innerHTML = announcements.map(announcement => {
+                const priorityColors = {
+                    high: 'bg-red-500',
+                    normal: 'bg-islamic-gold',
+                    low: 'bg-emerald'
+                };
+
+                return `
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-l-4 ${priorityColors[announcement.priority] || 'bg-islamic-gold'}">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="font-scheherazade text-xl font-bold text-emerald-dark">${announcement.title}</h3>
+                            <span class="text-xs text-chocolate-light bg-cream px-3 py-1 rounded-full">${announcement.date}</span>
+                        </div>
+                        <p class="text-chocolate-light">${announcement.content}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ============================================
+        // GALLERY
+        // ============================================
+        async function loadGallery() {
+            const container = document.getElementById('gallery-container');
+            let gallery = getLocalData('gallery');
+
+            if (gallery.length === 0) {
+                gallery = [
+                    { id: 1, url: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600&q=80', title: 'Masjid Utama', description: 'Tampak depan masjid' },
+                    { id: 2, url: 'https://images.unsplash.com/photo-1564121211835-e88c852648ab?w=600&q=80', title: 'Sholat Berjamaah', description: 'Kegiatan sholat berjamaah' },
+                    { id: 3, url: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=600&q=80', title: 'Kajian Rutin', description: 'Kajian pengajian rutin' },
+                    { id: 4, url: 'https://images.unsplash.com/photo-1590073242678-cfea53386b36?w=600&q=80', title: 'Kegiatan Anak', description: 'Program anak-anak' }
+                ];
+                setLocalData('gallery', gallery);
+            }
+
+            container.innerHTML = gallery.map(item => `
+                <div class="relative group overflow-hidden rounded-2xl cursor-pointer card-hover" onclick="openLightbox('${item.url}')">
+                    <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover aspect-square">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                        <div>
+                            <h4 class="text-white font-semibold">${item.title}</h4>
+                            <p class="text-cream/70 text-sm">${item.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openLightbox(url) {
+            document.getElementById('lightbox-img').src = url;
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // ============================================
+        // FORMS
+        // ============================================
+        document.getElementById('infaq-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const data = {
+                nama: document.getElementById('infaq-nama').value,
+                telepon: document.getElementById('infaq-telepon').value,
+                jumlah: document.getElementById('infaq-jumlah').value,
+                keterangan: document.getElementById('infaq-keterangan').value
+            };
+
+            const result = await apiRequest('submitInfaq', data);
+
+            if (result && result.status === 'success') {
+                showToast('Terima Kasih!', 'Infaq Anda telah dicatat. Jazakallahu khairan.');
+                this.reset();
+            } else {
+                // Fallback: simpan ke localStorage
+                const infaqData = getLocalData('infaq');
+                infaqData.push({
+                    id: Date.now(),
+                    ...data,
+                    tanggal: new Date().toISOString(),
+                    status: 'Pending'
+                });
+                setLocalData('infaq', infaqData);
+                showToast('Terima Kasih!', 'Infaq Anda telah dicatat secara lokal. Jazakallahu khairan.');
+                this.reset();
+            }
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const data = {
+                nama: document.getElementById('contact-nama').value,
+                email: document.getElementById('contact-email').value,
+                subjek: document.getElementById('contact-subjek').value,
+                pesan: document.getElementById('contact-pesan').value
+            };
+
+            const result = await apiRequest('submitContact', data);
+
+            if (result && result.status === 'success') {
+                showToast('Terima Kasih!', 'Pesan Anda telah dikirim.');
+                this.reset();
+            } else {
+                const contactData = getLocalData('contacts');
+                contactData.push({
+                    id: Date.now(),
+                    ...data,
+                    tanggal: new Date().toISOString(),
+                    status: 'Baru'
+                });
+                setLocalData('contacts', contactData);
+                showToast('Terima Kasih!', 'Pesan Anda telah dicatat secara lokal.');
+                this.reset();
+            }
+        });
+
+        // ============================================
+        // ADMIN FUNCTIONS
+        // ============================================
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const code = document.getElementById('admin-code').value;
+
+            if (code === CONFIG.ADMIN_CODE) {
+                closeAdminModal();
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                showToast('Berhasil!', 'Selamat datang di Dashboard Admin.');
+                switchAdminTab('kegiatan');
+            } else {
+                showToast('Error', 'Kode akses salah!', 'error');
+            }
+        });
+
+        function switchAdminTab(tab) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+            const content = document.getElementById('admin-content');
+
+            switch(tab) {
+                case 'kegiatan':
+                    content.innerHTML = renderAdminActivities();
+                    break;
+                case 'pengumuman':
+                    content.innerHTML = renderAdminAnnouncements();
+                    break;
+                case 'galeri':
+                    content.innerHTML = renderAdminGallery();
+                    break;
+                case 'infaq':
+                    content.innerHTML = renderAdminInfaq();
+                    break;
+                case 'pesan':
+                    content.innerHTML = renderAdminContacts();
+                    break;
+            }
+        }
+
+        function renderAdminActivities() {
+            const activities = getLocalData('activities');
+            return `
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-scheherazade text-xl text-emerald-dark">Daftar Kegiatan</h4>
+                        <button onclick="showAddActivityForm()" class="bg-emerald text-white px-4 py-2 rounded-lg hover:bg-emerald-light transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Tambah
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-cream">
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Judul</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Tanggal</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Waktu</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${activities.map(a => `
+                                    <tr class="border-b border-cream-dark">
+                                        <td class="px-4 py-3">${a.title}</td>
+                                        <td class="px-4 py-3">${a.date}</td>
+                                        <td class="px-4 py-3">${a.time}</td>
+                                        <td class="px-4 py-3">
+                                            <button onclick="deleteActivity(${a.id})" class="text-red-500 hover:text-red-700">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAdminAnnouncements() {
+            const announcements = getLocalData('announcements');
+            return `
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-scheherazade text-xl text-emerald-dark">Daftar Pengumuman</h4>
+                        <button onclick="showAddAnnouncementForm()" class="bg-emerald text-white px-4 py-2 rounded-lg hover:bg-emerald-light transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Tambah
+                        </button>
+                    </div>
+                    <div class="space-y-4">
+                        ${announcements.map(a => `
+                            <div class="bg-cream rounded-xl p-4 flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-chocolate-dark">${a.title}</h5>
+                                    <p class="text-sm text-chocolate-light">${a.date}</p>
+                                </div>
+                                <button onclick="deleteAnnouncement(${a.id})" class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAdminGallery() {
+            const gallery = getLocalData('gallery');
+            return `
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-scheherazade text-xl text-emerald-dark">Daftar Foto</h4>
+                        <button onclick="showAddGalleryForm()" class="bg-emerald text-white px-4 py-2 rounded-lg hover:bg-emerald-light transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Tambah
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        ${gallery.map(g => `
+                            <div class="relative group">
+                                <img src="${g.url}" alt="${g.title}" class="w-full h-32 object-cover rounded-xl">
+                                <button onclick="deleteGallery(${g.id})" class="absolute top-2 right-2 bg-red-500 text-white w-8 h-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <i class="fas fa-trash text-sm"></i>
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAdminInfaq() {
+            const infaq = getLocalData('infaq');
+            return `
+                <div class="space-y-4">
+                    <h4 class="font-scheherazade text-xl text-emerald-dark">Data Infaq</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="bg-cream">
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Nama</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Jumlah</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Tanggal</th>
+                                    <th class="px-4 py-3 text-left text-chocolate-dark font-semibold">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${infaq.map(i => `
+                                    <tr class="border-b border-cream-dark">
+                                        <td class="px-4 py-3">${i.nama}</td>
+                                        <td class="px-4 py-3">Rp ${parseInt(i.jumlah).toLocaleString('id-ID')}</td>
+                                        <td class="px-4 py-3">${new Date(i.tanggal).toLocaleDateString('id-ID')}</td>
+                                        <td class="px-4 py-3">
+                                            <span class="px-2 py-1 rounded-full text-xs ${i.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}">
+                                                ${i.status}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAdminContacts() {
+            const contacts = getLocalData('contacts');
+            return `
+                <div class="space-y-4">
+                    <h4 class="font-scheherazade text-xl text-emerald-dark">Pesan Masuk</h4>
+                    <div class="space-y-4">
+                        ${contacts.map(c => `
+                            <div class="bg-cream rounded-xl p-4">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <h5 class="font-semibold text-chocolate-dark">${c.nama}</h5>
+                                        <p class="text-sm text-chocolate-light">${c.email}</p>
+                                    </div>
+                                    <span class="text-xs text-chocolate-light">${new Date(c.tanggal).toLocaleDateString('id-ID')}</span>
+                                </div>
+                                <p class="text-chocolate-light text-sm">${c.pesan}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            loadActivities();
+            loadAnnouncements();
+            loadGallery();
+        });
+    </script>
+</body>
+</html>
